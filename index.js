@@ -1,20 +1,15 @@
-var name = 'global_name'
-var obj = {
-  name: 'local',
-  foo: function() {
-    this.name = 'foo'
-    console.log(this.name)
-  }.bind(global),
-}
-var bar = new obj.foo()
-var bar3 = (bar2 = bar)
-setTimeout(function (name) {
-  console.log(name)
-}, {name:"setTimeout"})
-setTimeout(function () {
-  console.log(name)
-}, 0)
-console.log(bar.name)
-bar2.name = 'f002' 
-console.log(bar3.name)
-// console.log("this: ",globalThis);
+const express = require('express');
+const { resolve } = require('path');
+
+const app = express();
+const port = 3010;
+
+app.use(express.static('static'));
+
+app.get('/', (req, res) => {
+  res.sendFile(resolve(__dirname, 'pages/index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
