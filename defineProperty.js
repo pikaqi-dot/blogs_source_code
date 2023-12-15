@@ -1,5 +1,5 @@
 function notifyUpdate() {
-    document.getElementById("app").innerText = `${JSON.stringify(obj)}
+    document.getElementById("app").textContent = `${JSON.stringify(obj)}
     ${JSON.stringify(arrData)}`
 }
 function defineProperty(obj, key, val) {
